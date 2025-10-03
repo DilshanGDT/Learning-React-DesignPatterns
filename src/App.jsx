@@ -1,9 +1,10 @@
+import { CurrentUserInfo } from "./CurrentUserInfo"
 
 
 function App() {
   return (
     <>
-	<h1>React</h1>
+      <CurrentUserInfo />
     </>
   )
 }
