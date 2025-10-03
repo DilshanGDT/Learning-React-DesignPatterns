@@ -1,13 +1,17 @@
+import { ResourceLoader } from "./ResourceLoader"
 import { UserInfo } from "./UserInfo"
 import { UserLoader } from "./UserLoader"
 
 function App() {
   return (
     <>
-    <UserLoader userId="345">
+    <ResourceLoader   //much more flexible
+     resourceUrl={`/api/users/345`}
+     resourceName="user"
+     >
       <UserInfo />
-    </UserLoader>
-    <UserLoader userId="120">
+    </ResourceLoader>
+    <UserLoader userId="345">
       <UserInfo />
     </UserLoader>
     </>
