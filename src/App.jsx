@@ -1,22 +1,46 @@
 import { useState } from "react"
-import { ControlledForm } from "./ControlledForm"
-import { ControlledModal } from "./ControlledModal"
-import { UncontrolledForm } from "./UncontrolledForm"
+import { ControlledOnboardingFlow } from "./ControlledOnboardingFlow";
 
+const StepOne = ({ goToNext }) => (
+	<>
+	<h1>Step 1</h1>
+	<button onClick={() => goToNext({ name: 'John Doe' })}>Next</button>
+	</>
+);
+
+const StepTwo = ({ goToNext }) => (
+	<>
+	<h1>Step 2</h1>
+	<button onClick={() => goToNext({ age: 100 })}>Next</button>
+	</>
+);
+
+const StepThree = ({ goToNext }) => (
+	<>
+	<h1>Step 3</h1>
+	<button onClick={() => goToNext({ hairColor: 'brown' })}>Next</button>
+	</>
+);
 
 function App() {
-  const [showModal, setshowModal] = useState(false);
+  const [onboardingData, setOnboardingData] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const onNext = stepData => {
+    setOnboardingData({ ...onboardingData, ...stepData});
+    setCurrentIndex(currentIndex + 1);
+  }
 
   return (
-    <>
-    <ControlledModal shouldShow={showModal} onRequestClose={() => setshowModal(false)}>
-      <ControlledForm
-      initialName={"Shawan"}
-      initialAge={23}
-      initialHairColor="Brown" />
-    </ControlledModal>
-    <button onClick={() => setshowModal(true)}>Open Modal</button>
-    </>
+    <ControlledOnboardingFlow
+      currentIndex={currentIndex}
+      onNext={onNext}
+      onFinish={() => alert("Done")}
+      >
+      <StepOne />
+      <StepTwo />
+      <StepThree />
+    </ControlledOnboardingFlow>
   )
 }
 
