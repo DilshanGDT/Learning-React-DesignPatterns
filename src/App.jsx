@@ -1,11 +1,16 @@
-import { CurrentUserInfo } from "./CurrentUserInfo"
 import { UserInfo } from "./UserInfo"
+import { UserLoader } from "./UserLoader"
 
 function App() {
   return (
-    <CurrentUserInfo>
+    <>
+    <UserLoader userId="345">
       <UserInfo />
-    </CurrentUserInfo>
+    </UserLoader>
+    <UserLoader userId="120">
+      <UserInfo />
+    </UserLoader>
+    </>
   )
 }
 
