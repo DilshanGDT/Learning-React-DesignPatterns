@@ -17,6 +17,13 @@ const StepTwo = ({ goToNext }) => (
 
 const StepThree = ({ goToNext }) => (
 	<>
+	<h1>Congratulations! You qualify for the senior discount!</h1>
+	<button onClick={() => goToNext({ age: 100 })}>Next</button>
+	</>
+);
+
+const StepFour = ({ goToNext }) => (
+	<>
 	<h1>Step 3</h1>
 	<button onClick={() => goToNext({ hairColor: 'brown' })}>Next</button>
 	</>
@@ -40,6 +47,7 @@ function App() {
       <StepOne />
       <StepTwo />
       <StepThree />
+      {onboardingData.age >= 65 && <StepThree />}
     </ControlledOnboardingFlow>
   )
 }
