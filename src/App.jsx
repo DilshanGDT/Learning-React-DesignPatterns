@@ -1,22 +1,11 @@
-import { Card, CardHeader, CardBody, CardFooter } from "./composition"
+import { DangerButton, SuccessButton } from "./partialApplication"
+
 
 function App() {
   return (
 		<>
-    <Card>
-			<CardHeader title="Card 1" />
-			<CardBody>
-				<p>This is the card content</p>
-			</CardBody>
-			<CardFooter>
-				<p>A footer</p>
-			</CardFooter>
-		</Card>
-		<Card>
-			<CardBody>
-				<p>This is the card content</p>
-			</CardBody>
-		</Card>
+		<DangerButton text="Self Destruct!" />
+		<SuccessButton size="large" />
 		</>
   )
 }
