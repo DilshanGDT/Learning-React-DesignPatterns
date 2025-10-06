@@ -1,8 +1,14 @@
 import { UserInfo } from "./UserInfo"
+import { useCurrentUserId } from "./useCurrentUserId"
 
 function App() {
+  const currentUserId = useCurrentUserId();
   return (
-    <UserInfo />
+    <>
+      <UserInfo userId="123" />
+      <UserInfo userId="345" />
+      <UserInfo userId={currentUserId}/>
+    </>
   )
 }
 

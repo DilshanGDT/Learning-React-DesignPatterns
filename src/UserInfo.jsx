@@ -1,7 +1,8 @@
 import { useCurrentUser } from "./useCurrentUser";
+import { useUser } from "./useUser";
 
-export const UserInfo = () => {
-	const { isLoading, user } = useCurrentUser();
+export const UserInfo = ({ userId }) => {
+	const { isLoading, user } = useUser(userId);
 
 	if (isLoading) {
 		return <p>Loading...</p>
