@@ -1,4 +1,6 @@
-export const UserInfo = ({ user }) => {
+import { inLayout } from './inLayout';
+
+export const UserInfo = inLayout(({ user }) => {
 	const { name, age, hairColor, hobbies } = user;
 
 	return (
@@ -12,4 +14,4 @@ export const UserInfo = ({ user }) => {
 		</ul>
 		</>
 	);
-}
+});
