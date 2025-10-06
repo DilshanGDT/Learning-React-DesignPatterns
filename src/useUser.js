@@ -1,20 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useResource } from "./useResource";
 
 export const useUser = (userId) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const loadedUser = {
-      id: userId,
-      name: 'John ' + userId,
-      age: 54,
-      hairColor: 'brown',
-      hobbies: ['swimming', 'bicycling', 'video games'],
-    };
-    setUser(loadedUser);
-    setIsLoading(false);
-  }, [])
-
+  const { isLoading, data: user } = useResource('/users/' + userId);
   return { isLoading, user };
 }
+
+//export const useProduct = (userId) => {...} same implementaton

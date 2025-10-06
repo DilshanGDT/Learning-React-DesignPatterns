@@ -1,4 +1,3 @@
-import { useCurrentUser } from "./useCurrentUser";
 import { useUser } from "./useUser";
 
 export const UserInfo = ({ userId }) => {
