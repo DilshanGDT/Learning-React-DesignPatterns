@@ -1,30 +1,23 @@
-import { RecursiveComponent } from "./RecursiveComponent"
-
-const nestedObject = {
-	a: 1,
-	b: {
-		b1: 4,
-		b2: {
-			b23: 'Hello',
-		},
-		b3: {
-			b31: {
-				message: 'Hi',
-			},
-			b32: {
-				message: 'Hi',
-			}
-		}
-	},
-	c: {
-		c1: 2,
-		c2: 3,
-	}
-}
+import { Card, CardHeader, CardBody, CardFooter } from "./composition"
 
 function App() {
   return (
-    <RecursiveComponent data={nestedObject} />
+		<>
+    <Card>
+			<CardHeader title="Card 1" />
+			<CardBody>
+				<p>This is the card content</p>
+			</CardBody>
+			<CardFooter>
+				<p>A footer</p>
+			</CardFooter>
+		</Card>
+		<Card>
+			<CardBody>
+				<p>This is the card content</p>
+			</CardBody>
+		</Card>
+		</>
   )
 }
 
